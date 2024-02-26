@@ -5,11 +5,12 @@ import logo from '../assets/logo.png';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import AlertDialog from '../components/AlertDialog';
-import { useTheme } from '@mui/material/styles';
+
+import backgroundImage from '../assets/background.jpg';
 
 export default function Login() {
     const baseUrl = "http://localhost:8080";
-    const theme = useTheme();
+    const backgroundRef = useRef(null);
     
     const [userId, setUserId] = useState('');
     const [userPw, setuserPw] = useState('');
@@ -48,7 +49,23 @@ export default function Login() {
     };
 
     return(
-        <div style={{ height: '100vh', display: 'flex', alignItems: 'center', backgroundColor: theme.palette.background.default }}>
+        <div style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+            <div
+                ref={backgroundRef}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundSize: 'cover',
+                    filter: 'blur(5px)', // 희미한 효과
+                    opacity: 0.7,
+                    zIndex: -1, // 배경 이미지가 컨텐츠 뒤로 가도록 설정
+                }}
+            />
+
             <Container component="main" maxWidth="xs" className={styles.loginContainer}>
                 <Box>
                     <img src={logo} alt='Logo' className={styles.mainLogo}/>
