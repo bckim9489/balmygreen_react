@@ -1,18 +1,17 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from './pages/Login.tsx';
+import Home from './pages/Home.tsx';
+import { useState } from "react";
 
-//import SignUp from './pages/signup.tsx';
-//import Lobby from './pages/lobby.tsx';
 
 function App() {
-  const isLoggedIn = false;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <BrowserRouter>
-      {!isLoggedIn && <Navigate to="/login" />}
       <Routes>
-        <Route path="/login" element={<Login />}/>
-        {/* <Route path="/" element={<Home />}/>  */}
+        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="*"element={isLoggedIn ? <Home /> : <Navigate to="/login" />}  /> 
       </Routes>
     </BrowserRouter>
   )

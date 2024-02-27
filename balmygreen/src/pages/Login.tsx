@@ -8,23 +8,26 @@ import AlertDialog from '../components/AlertDialog';
 
 import backgroundImage from '../assets/background.jpg';
 
-export default function Login() {
+export default function Login({setIsLoggedIn}:any) {
+    
     const baseUrl = "http://localhost:8080";
     const backgroundRef = useRef(null);
     
+    const navigate = useNavigate();
+    const [openDialog, setOpenDialog] = useState(false);
     const [userId, setUserId] = useState('');
     const [userPw, setuserPw] = useState('');
-    const [openDialog, setOpenDialog] = useState(false);
     const msg = useRef('')
     
-
+    
     const handleDialogClose = () => {
         setOpenDialog(false);
     };
-
-    const navigate = useNavigate();
-
+    
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        setIsLoggedIn(true);
+        navigate('/', { state: { userId: userId} });
+        /*
         e.preventDefault();
         try {
             const response = await fetch(baseUrl + '/api/login', {
@@ -34,7 +37,7 @@ export default function Login() {
                 },
                 body: JSON.stringify({ userId, userPw }),
             });
-
+            
             if (response.ok) {
                 const data = await response.json();
                 navigate('/', { state: { userId: userId, ...data } });
@@ -46,20 +49,21 @@ export default function Login() {
             msg.current = '서버에서 응답이 없습니다. 잠시 후 다시 시도해주세요.'
             setOpenDialog(true);
         }
+        */
     };
-
+    
     return(
         <div style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
-            <div
-                ref={backgroundRef}
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: `url(${backgroundImage})`,
-                    backgroundSize: 'cover',
+        <div
+        ref={backgroundRef}
+        style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
                     filter: 'blur(5px)', // 희미한 효과
                     opacity: 0.7,
                     zIndex: -1, // 배경 이미지가 컨텐츠 뒤로 가도록 설정
