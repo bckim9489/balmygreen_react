@@ -1,34 +1,40 @@
 import { Box, Container, Grid, Paper, Typography, styled } from "@mui/material";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
 export default function Dashboard() {
 
   return (
-
-    <Container maxWidth="xl" sx={{pt:2}}>
-      <Box sx={{ width: '100%' }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid xs={6}>
-            <Item>1</Item>
-          </Grid>
-          <Grid xs={6}>
-            <Item>2</Item>
-          </Grid>
-          <Grid xs={6}>
-            <Item>3</Item>
-          </Grid>
-          <Grid xs={6}>
-            <Item>4</Item>
-          </Grid>
-        </Grid>
-      </Box>
+  <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+    <Grid container spacing={2}>
+      <Grid item xs={12} md={4} lg={3}>
+        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+          <Typography>
+            오늘 방문자
+          </Typography>
+        </Paper>
+      </Grid>
+      
+      <Grid item xs={12} md={4} lg={3}>
+        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+          <Typography>
+            총 방문자
+          </Typography>
+        </Paper>
+      </Grid>
+      <Grid item xs={12} md={4} lg={3}>
+        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+          <Typography>
+            미답변 문의
+          </Typography>
+        </Paper>
+      </Grid>
+      <Grid item xs={12} md={4} lg={3}>
+        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+          <Typography>
+            신규 예약 문의
+          </Typography>
+        </Paper>
+      </Grid>
+    </Grid>
   </Container>
   );
 }
