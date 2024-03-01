@@ -20,7 +20,7 @@ export default function ButtonDrawer({open, onClose}: {open:boolean, onClose : (
         <Box sx={{ width: 250 }} role="presentation" onClick={onClose}>
           <List>
               <ListItem key='Dashboard' disablePadding>
-                <ListItemButton onClick={() => handleMenuClick('/dashboard')}>
+                <ListItemButton onClick={() => handleMenuClick('./dashboard')}>
                     <ListItemIcon>
                       <Home />
                     </ListItemIcon>
@@ -28,7 +28,7 @@ export default function ButtonDrawer({open, onClose}: {open:boolean, onClose : (
                   </ListItemButton>
               </ListItem>
               <ListItem key='Page' disablePadding>
-                <ListItemButton onClick={() => handleMenuClick('/page')}>
+                <ListItemButton onClick={() => handleMenuClick('./page')}>
                     <ListItemIcon>
                       <Web />
                     </ListItemIcon>
@@ -36,7 +36,7 @@ export default function ButtonDrawer({open, onClose}: {open:boolean, onClose : (
                   </ListItemButton>
               </ListItem>
               <ListItem key='Project' disablePadding>
-                <ListItemButton onClick={() => handleMenuClick('/project')}>
+                <ListItemButton onClick={() => handleMenuClick('./project')}>
                     <ListItemIcon>
                       <Inventory />
                     </ListItemIcon>
@@ -44,7 +44,7 @@ export default function ButtonDrawer({open, onClose}: {open:boolean, onClose : (
                   </ListItemButton>
               </ListItem>
               <ListItem key='QnA' disablePadding>
-                 <ListItemButton onClick={() => handleMenuClick('/qna')}>
+                 <ListItemButton onClick={() => handleMenuClick('./qna')}>
                   <ListItemIcon>
                     <QuestionAnswer />
                   </ListItemIcon>

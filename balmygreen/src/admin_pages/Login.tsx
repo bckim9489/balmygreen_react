@@ -10,7 +10,7 @@ import backgroundImage from '../assets/background.jpg';
 
 export default function Login({setIsLoggedIn}:any) {
     
-    const baseUrl = "http://localhost:8080";
+    const baseUrl = "http://localhost:8080/";
     const backgroundRef = useRef(null);
     
     const navigate = useNavigate();
@@ -25,10 +25,10 @@ export default function Login({setIsLoggedIn}:any) {
     };
     
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        setIsLoggedIn(true);
-        navigate('/', { state: { userId: userId} });
-        /*
         e.preventDefault();
+        setIsLoggedIn(true);
+        navigate('/admin', { state: { userId: userId} });
+        /*
         try {
             const response = await fetch(baseUrl + '/api/login', {
                 method: 'POST',

@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from './pages/Login.tsx';
-import Home from './pages/Home.tsx';
+import Login from './admin_pages/Login.tsx';
+import AdminHome from './admin_pages/Home.tsx';
 import { useState } from "react";
+import Home from "./pages/Home.tsx";
 
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="*"element={isLoggedIn ? <Home /> : <Navigate to="/login" />}  /> 
+        <Route path="/admin/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path="/admin/*"element={isLoggedIn ? <AdminHome /> : <Navigate to="/admin/login" />}  /> 
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )
