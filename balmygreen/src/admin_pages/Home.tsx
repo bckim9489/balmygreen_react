@@ -18,9 +18,9 @@ export default function Home() {
       <Layout>  
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}/> 
-          <Route path="/page" element={<Page />}/> 
+          {/* <Route path="/page" element={<Page />}/> 
           <Route path="/project" element={<Project />}/> 
-          <Route path="/qna" element={<Qna />}/> 
+          <Route path="/qna" element={<Qna />}/>  */}
         </Routes>
       </Layout>
     </div>
